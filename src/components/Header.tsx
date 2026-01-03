@@ -107,7 +107,7 @@ const Header = () => {
               <span className="flag">
                 {code}
               </span>
-              <img className="selector-dorp-down" src="/src/assets/icons/arrow-down.png" alt="down" />
+              <img className="selector-dorp-down" src="/assets/icons/arrow-down.png" alt="down" />
               <select onChange={handleChange} value={selectedCountry}>
                 {countries.map((country, index) => (
                   <option key={index} value={country.name}>
