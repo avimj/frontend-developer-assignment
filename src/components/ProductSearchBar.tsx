@@ -18,7 +18,7 @@ const ProductSearchBar = () => {
           <div className="search-bar">
             <div className="search-bar-category">
                 <div className="select-category">
-                    <span>{category}</span><img src="/src/assets/icons/arrow-down-cat.png" alt="logo" />
+                    <span>{category}</span><img src="/assets/icons/arrow-down-cat.png" alt="arrow" />
                 </div>
                 <select value={category} onChange={(e) => setCategory(e.target.value)}>
                     <option value="All">All</option>

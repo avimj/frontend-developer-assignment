@@ -64,23 +64,23 @@ const Footer = () => {
           </div>
           <div className="footer-middle flex justify-between">
             <div className="footer-app">
-              <a href="#"><img src="/src/assets/icons/playstore.svg" alt="" /></a>
-              <a href="#"><img src="/src/assets/icons/googleplay.svg" alt="" /></a>
+              <a href="#"><img src="/assets/icons/playstore.svg" alt="" /></a>
+              <a href="#"><img src="/assets/icons/googleplay.svg" alt="" /></a>
             </div>
             <div className="footer-social-media">
               <span>Follow us</span>
               <ul>
                 <li>
-                  <a href="#"><img src="/src/assets/icons/Facebook.svg" alt="" /></a>
+                  <a href="#"><img src="/assets/icons/Facebook.svg" alt="" /></a>
                 </li>
                 <li>
-                  <a href="#"><img src="/src/assets/icons/YouTube.svg" alt="" /></a>
+                  <a href="#"><img src="/assets/icons/YouTube.svg" alt="" /></a>
                 </li>
                 <li>
-                  <a href="#"><img src="/src/assets/icons/Linkedin.svg" alt="" /></a>
+                  <a href="#"><img src="/assets/icons/Linkedin.svg" alt="" /></a>
                 </li>
                 <li>
-                  <a href="#"><img src="/src/assets/icons/Telegram.svg" alt="" /></a>
+                  <a href="#"><img src="/assets/icons/Telegram.svg" alt="" /></a>
                 </li>
               </ul>
             </div>
