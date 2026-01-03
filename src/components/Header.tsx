@@ -37,7 +37,7 @@ const Header = () => {
       <div className="header-top">
         <div className="site-logo">
           <Link to="/">
-            <img src="/public/assets/logo.png" alt="logo" />
+            <img src="/assets/logo.png" alt="logo" />
           </Link>
         </div>
         {/* Start Search Bar */}

@@ -4,7 +4,7 @@ const PromoBox = () => {
             <div className="grid max-md:grid-cols-1 md:grid-cols-2 gap-4">  
                 <div className="row-span-2 promo-box-large">
                     <a className="tt-promo-box" href="/">
-                        <img src="../src/assets/index-promo-img-07.jpg" alt="NEW IN" />
+                        <img src="/assets/index-promo-img-07.jpg" alt="NEW IN" />
                         <div className="tt-description">
                             <div className="tt-description-wrapper">
                                 <div className="tt-background "></div>
@@ -16,7 +16,7 @@ const PromoBox = () => {
                 </div>  
                 <div className="promo-box-small">
                     <a className="tt-promo-box" href="/">
-                        <img src="../src/assets/index02-promo-img-02.jpg" alt="CLEARANCE SALES" />
+                        <img src="/assets/index02-promo-img-02.jpg" alt="CLEARANCE SALES" />
                         <div className="tt-description">
                             <div className="tt-description-wrapper">
                                 <div className="tt-background "></div>
@@ -30,7 +30,7 @@ const PromoBox = () => {
                 </div>  
                 <div className="promo-box-small">
                     <a className="tt-promo-box" href="/">
-                        <img src="../src/assets/index05-promo-img-05.jpg" alt="NEW IN:" />
+                        <img src="/assets/index05-promo-img-05.jpg" alt="NEW IN:" />
                         <div className="tt-description">
                             <div className="tt-description-wrapper">
                                 <div className="tt-background "></div>
