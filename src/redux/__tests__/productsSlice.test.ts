@@ -5,7 +5,7 @@ import productsReducer, { fetchProducts } from '../productsSlice';
 
 vi.mock('axios');
 
-const mockedAxios = axios as unknown as { get: vi.Mock };
+const mockedAxios = axios as unknown as { get: any };
 
 describe('productsSlice', () => {
   beforeEach(() => {

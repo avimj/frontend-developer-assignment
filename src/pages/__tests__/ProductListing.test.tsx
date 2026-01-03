@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
@@ -29,7 +28,8 @@ function renderWithStore(preloadedState = { products: { products: sampleProducts
 
 describe('ProductListing', () => {
   beforeEach(() => {
-    vi.spyOn(productsSlice, 'fetchProducts').mockImplementation(() => () => Promise.resolve([]));
+    // Return a thunk function so dispatch(fetchProducts()) is valid in tests
+    vi.spyOn(productsSlice, 'fetchProducts').mockImplementation((): any => () => Promise.resolve([]));
   });
 
   afterEach(() => {

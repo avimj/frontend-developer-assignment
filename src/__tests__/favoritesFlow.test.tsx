@@ -1,9 +1,7 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
-import { MemoryRouter } from 'react-router-dom';
 import productsReducer from '../redux/productsSlice';
 import * as productsSlice from '../redux/productsSlice';
 import { vi } from 'vitest';
@@ -37,7 +35,8 @@ function renderWithStore(preloadedState = { products: { products: sampleProducts
 
 describe('Favorites flow', () => {
   beforeEach(() => {
-    vi.spyOn(productsSlice, 'fetchProducts').mockImplementation(() => () => Promise.resolve([]));
+    // return a thunk (function) so dispatch(fetchProducts()) works in components
+    vi.spyOn(productsSlice, 'fetchProducts').mockImplementation((): any => () => Promise.resolve([]));
   });
 
   afterEach(() => {
