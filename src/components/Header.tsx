@@ -1,0 +1,126 @@
+import { HiBars3 } from "react-icons/hi2";
+import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import type { RootState } from "../redux/store";
+import ProductSearchBar from "./ProductSearchBar";
+
+
+const Header = () => {
+ 
+  const [selectedCountry, setSelectedCountry] = useState('India');
+  const [currency, setCurrency] = useState('INR');
+  const [code, setFlag] = useState('₹');
+
+  const countries = [
+    { name: 'Germany', code: '€', currency: 'EUR'},
+    { name: 'USA', code: '$', currency: 'USD' },
+    { name: 'India', code: '₹', currency: 'INR' },
+  ];
+
+  const handleChange = (e: { target: { value: string; }; }) => {
+    const selected = countries.find(c => c.name === e.target.value);
+    if (selected) {
+      setSelectedCountry(selected.name);
+      setCurrency(selected.currency);
+      setFlag(selected.code);
+    } else {
+      console.error('Country not found:', e.target.value);
+    }
+  };
+  const favorites = useSelector((state: RootState) => state.favorites.favorites);
+
+  return (
+    <>
+    <header className="site-container flex-col flex text-center justify-between items-center py-4 px-5 text-black mx-auto max-sm:px-5 max-[400px]:px-3">
+      <div className="header-top">
+        <div className="site-logo">
+          <Link to="/">
+            <img src="/src/assets/logo.png" alt="logo" />
+          </Link>
+        </div>
+        {/* Start Search Bar */}
+        <ProductSearchBar />
+        {/* End Search Bar */}
+        <div className="login-holder">
+          <div className="mobile-search-icon">
+            <HiOutlineMagnifyingGlass className="text-2xl max-sm:text-xl" />
+          </div>
+          <div className="flex items-center gap-1">
+            <Link to="/favorites" className="favorites btn btn-ghost btn-circle">
+                <div className="indicator">
+                    <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.97214 0.0251923C3.71435 0.183434 2.6616 0.701674 1.7705 1.60365C0.970091 2.41068 0.489057 3.26519 0.213053 4.37683C-0.275867 6.30342 0.0789948 8.20232 1.25398 9.98649C2.00708 11.1298 2.98097 12.1781 4.76711 13.7764C5.90266 14.7931 9.36848 17.7601 9.53802 17.859C9.69574 17.954 9.75488 17.9658 10.09 17.9658C10.4252 17.9658 10.4843 17.954 10.642 17.859C10.8116 17.7601 14.2853 14.7891 15.413 13.7764C17.207 12.1702 18.173 11.1258 18.9261 9.98649C20.1011 8.20232 20.4559 6.30342 19.967 4.37683C19.691 3.26519 19.21 2.41068 18.4096 1.60365C17.6131 0.800575 16.7614 0.337719 15.6456 0.100357C15.0857 -0.0183239 14.0526 -0.0301933 13.5637 0.0805759C12.1995 0.377279 11.1546 1.06167 10.2004 2.28013L10.09 2.41859L9.98357 2.28013C9.04122 1.08541 8.01212 0.401016 6.69913 0.100357C6.30878 0.00936699 5.4098 -0.0301933 4.97214 0.0251923ZM6.28907 1.23178C7.40885 1.42958 8.37487 2.07837 9.13979 3.15046C9.26991 3.3364 9.43156 3.55793 9.49465 3.64892C9.78643 4.06035 10.3936 4.06035 10.6854 3.64892C10.7485 3.55793 10.9102 3.3364 11.0403 3.15046C12.0851 1.68673 13.5401 0.998377 15.1251 1.21596C16.8837 1.45728 18.2558 2.69156 18.7802 4.50738C19.1942 5.94342 19.0128 7.45067 18.2597 8.80759C17.6289 9.94298 16.5761 11.1337 14.7427 12.7834C13.8555 13.5786 10.1255 16.7988 10.09 16.7988C10.0506 16.7988 6.33638 13.5904 5.4374 12.7834C2.61823 10.2476 1.50633 8.66518 1.23821 6.8098C1.06472 5.61112 1.31312 4.32145 1.91639 3.30475C2.82326 1.77376 4.58968 0.935081 6.28907 1.23178Z" fill="black"></path></svg>
+                    {favorites.length > 0 && <span className="badge badge-sm indicator-item">{favorites.length}</span>}
+                </div>
+            </Link>
+            <div className="dropdown dropdown-end">
+                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+                    <div className="indicator">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /> </svg>
+                    </div>
+                </div>
+            </div>
+            <div className="dropdown dropdown-end">
+                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                    <div className="w-10 rounded-full">
+                        <img
+                        alt="Tailwind CSS Navbar component"
+                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                    </div>
+                </div>
+                <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                    <li><a className="justify-between"> Profile</a></li>
+                    <li><a>Settings</a></li>
+                    <li><a>Logout</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+      </div>
+    </header>
+    <div className="header-bottom px-5">
+      <div className="header-bottom-inner">
+        <div className="bottom-menu-holder">
+          <div className="header-bottom-menu">
+            <div className="category-menu">
+              <HiBars3 className="text-2xl max-sm:text-xl max-lg:mr-0 cursor-pointer"/>
+              All category
+            </div>
+            <div className="mobile-menu-holder">
+              <HiBars3 className="text-2xl max-sm:text-xl max-lg:mr-0 cursor-pointer"/>
+              Menu
+            </div>
+            <ul className="desktop-menu">
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/shop">Shop</Link></li>
+              <li><Link to="/favorites">Favorites</Link></li>
+              <li><Link to="/">Contact</Link></li>
+            </ul>
+          </div>
+          
+        </div>
+        <div className="header-bottom-language">
+          <div className="country-selector">
+            <div className="selector">
+              <span className="country">{selectedCountry}, {currency}</span>
+              <span className="flag">
+                {code}
+              </span>
+              <img className="selector-dorp-down" src="/src/assets/icons/arrow-down.png" alt="down" />
+              <select onChange={handleChange} value={selectedCountry}>
+                {countries.map((country, index) => (
+                  <option key={index} value={country.name}>
+                    {country.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </>
+  );
+};
+export default Header;
